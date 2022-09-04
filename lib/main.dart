@@ -4,7 +4,4 @@ import 'package:flutter/material.dart';
 
 import 'app.dart';
 
-void main() {
-  Bloc.observer = CounterObserver();
-  runApp(const CounterApp());
-}
+void main() => runApp(const App());

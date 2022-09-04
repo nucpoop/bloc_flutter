@@ -1,6 +1,6 @@
 # bloc_flutter
 
-A new Flutter project.
+bloc 튜토리얼 소스
 
 ## Getting Started
 
