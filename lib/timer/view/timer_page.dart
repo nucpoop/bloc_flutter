@@ -91,6 +91,22 @@ class Actions extends StatelessWidget {
                 onPressed: () => context.read<TimerBloc>().add(TimerReset()),
               )
             ],
+            if (state is TimerRunPause) ...[
+              FloatingActionButton(
+                child: Icon(Icons.play_arrow),
+                onPressed: () => context.read<TimerBloc>().add(TimerResumed()),
+              ),
+              FloatingActionButton(
+                child: Icon(Icons.replay),
+                onPressed: () => context.read<TimerBloc>().add(TimerReset()),
+              )
+            ],
+            if (state is TimeRunComplete) ...[
+              FloatingActionButton(
+                child: Icon(Icons.replay),
+                onPressed: () => context.read<TimerBloc>().add(TimerReset()),
+              ),
+            ],
           ],
         );
       },
@@ -102,7 +118,18 @@ class Background extends StatelessWidget {
   const Background({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Colors.blue.shade50,
+            Colors.blue.shade500,
+          ]
+        )
+      ),
+    );
   }
 }
 
