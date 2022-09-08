@@ -1,6 +1,28 @@
 part of 'post_bloc.dart';
 
-@immutable
-abstract class PostState {}
+enum PostStatus {initial, success, failure}
 
-class PostInitial extends PostState {}
+abstract class PostState extends Equatable {
+
+  const PostState({
+    this.status = PostStatus.initial,
+    this.posts = const <Post>[],
+    this.hasReadchedMax = false,
+});
+
+  final PostStatus status;
+  final List<Post> posts;
+  final bool hasReadchedMax;
+
+  PostState copyWith({
+    PostStatus? status,
+
+}){
+
+}
+}
+
+class PostInitial extends PostState {
+  @override
+  List<Object> get props => [];
+}
